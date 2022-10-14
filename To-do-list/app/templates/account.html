@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Dashboard- Neuro App
+{% endblock title %}
+{% block message %}
+ <section class="py-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+             
+                  <nav id="nav">
+                    <ul style="list-style: none;">
+                      <li class="mb-3"><a href="" style="font-weight: bolder; text-decoration:none; color:black" class="text-info">Home</a></li> <hr>
+                        <li class="mb-3"><a href="../profile" style="font-weight: bolder; text-decoration:none; color:black">Profile</a></li> <hr>
+                        <li class="mb-3"><a href="../tasks/new" style="font-weight: bolder; text-decoration:none; color:black">New Task</a></li> <hr>
+                        <li class="mb-3"><a href="../tasks/all" style="font-weight: bolder; text-decoration:none; color:black">View Tasks</a></li> <hr>
+                       
+                    </ul> 
+                  </nav>
+               
+            </div>
+            <div class="col-sm-8">
+                <!--section one-->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div style="font-weight: bolder;">Welcome <i class="bi bi-person-circle"></i> {{user.username}}</div>
+                    </div>
+                </div>
+                <!--section two-->
+               
+                <div class="float-end"><a href="../tasks/all" style="text-decoration: none;">All Lists</a></div> <br>
+                 <div class="card py-5 mb-5">
+                    <div class="card-body">
+                       <div class="text-center">
+                        <a href="../tasks/new"><i class="bi bi-plus-circle text-dark" style="font-size: 35px;"></i></a>
+                        <div>Add Task</div>
+                      </div>
+                    </div>
+                 </div>
+                
+                
+                  </div>
+                 </div>
+            </div>
+            
+    </div>
+ </section>
+{% endblock message %}

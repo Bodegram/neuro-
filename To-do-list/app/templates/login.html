@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Login - Neuro App
+{% endblock title %}
+{% block message %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="{% static 'images/t.jpg' %}" id="image" style="margin-left: 23px;margin-top: 12px;" class="img-fluid" alt="">
+            </div>
+            <div class="col-sm-5">
+               <div class="card py-5 " style="border: none;">
+                <div class="card-body">
+                  <div class="h4">Sign in for <span class="text-warning">Neuro App</span></div>
+                  <div class="mb-4">Does not have an account? <a href="../register">Sign up</a></div>
+                 
+                    {% for message in messages %}
+                    <div style="font-size: smaller;padding: 3px;" class="text-danger text-center bg-light">{{message}}</div>
+                    {% endfor %}
+                 
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    <div>
+                      <label for="">Username</label> <br>
+                    <input type="text" class="w-100" required style="outline: none;" name="username" id="">
+                    </div>
+                    <div class="mt-2">
+                      <label for="">Password</label> <br>
+                      <input type="password" style="outline: none;" required class="w-100" name="password" id="">
+                    </div>
+                    <div class="mt-2">
+                      <button type="submit" class="btn btn-md bg-dark text-light">Log in</button>
+                    </div>
+              </form>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock message%}

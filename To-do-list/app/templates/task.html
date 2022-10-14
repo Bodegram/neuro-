@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Task - Neuro App
+{% endblock title %}
+{% block message %}
+ <section class="py-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-5">
+                <nav id="nav">
+                    <ul style="list-style: none;">
+                      <li class="mb-3"><a href="../../account" style="font-weight: bolder; text-decoration:none; color:black">Home</a></li> <hr>
+                        <li class="mb-3"><a href="../../profile" style="font-weight: bolder; text-decoration:none; color:black">Profile</a></li> <hr>
+                        <li class="mb-3"><a href="../new" style="font-weight: bolder; text-decoration:none; color:black" class="text-info">New Task</a></li> <hr>
+                        <li class="mb-3"><a href="../all" style="font-weight: bolder; text-decoration:none; color:black">View Tasks</a></li> <hr>
+                       
+                    </ul> 
+                  </nav>
+                
+            </div>
+            <div class="col-sm-6">
+                <!--section one-->
+                 <div class="text-center mb-3"><span><a href="../account" class="text-dark">Account</a></span> > <span><a href="" class="text-dark">{{task.title | upper}}</a></span></div>
+                 <!--section two-->
+                  <div class="card py-2">
+                     <div class="card-body">
+                         <div class="mb-3"><span style="font-weight: bold;" class="text-danger"><i class="bi bi-calendar"></i> TASK - </span> <span style="font-family: monspace;">{{task.title | upper}}</span></div>
+                         <div class="mb-3">
+                            <div style="font-weight: bold;" class="text-danger"><i class="bi bi-tags"></i> Category</div>
+                            <div>{{task.category}}</span></div>
+                         </div>
+                         <div class="mb-3">
+                            <div style="font-weight: bold;" class="text-danger"><i class="bi bi-calendar-date-fill"></i> Date</div>
+                            <div>{{task.date}}</span></div>
+                         </div>
+                         <div>
+                            <div style="font-weight: bold;" class="text-danger">Description</div>
+                            <div>{{task.content}}</div>
+                         </div>
+                     </div>
+                  </div>
+                  </div>
+                 </div>
+            </div>
+            
+    </div>
+ </section>
+{% endblock message %}

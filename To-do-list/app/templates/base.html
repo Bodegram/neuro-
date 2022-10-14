@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        {% endblock title%}
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: sans-serif;
+            
+        }
+        .card{
+          box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+        }
+        @media screen and (max-width: 600px){
+   .cover{
+  position: relative;
+   }
+   .cover-content{
+  position: absolute;
+  top: 40px
+  
+   }
+   .button{
+      position: absolute;
+      margin-left: 80px;
+   }
+ 
+   .note{
+    font-size: smaller;
+   }
+   #image{
+    display: none;
+   }
+   #nav ul{
+    display: inline-flex;
+    font-size: 10px;
+   }
+   #nav ul li{
+    padding-left: 8px;
+   }
+   hr{
+    display: none;
+   }
+   
+}
+@media screen and (min-width: 769px){
+   .cover{
+  position: relative;
+   }
+   .cover-content{
+  position: absolute;
+  top: 340px;
+  left: 220px;
+   }
+   .button{
+      position: absolute;
+      margin-left: 380px;
+   }
+  
+}
+#card1-content{
+  display: none;
+}
+
+#card-1:hover #card1-content{
+  display: block;
+}
+#card-2:hover #card1-content{
+  display: block;
+}
+#card-3:hover #card1-content{
+  display: block;
+  color: black;
+}
+#card-1:hover{
+  opacity: 0.8;
+  
+}
+#card-2:hover{
+  opacity: 0.8;
+}
+#card-3:hover{
+  opacity: 0.8;
+}
+#dropdown{
+  position: relative;
+  display: inline-block;
+}
+#dropdown-content{
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+#dropdown-btn:hover{
+  color: black;
+}
+#dropdown:hover #dropdown-content{
+  display: block;
+}
+ </style>
+  </head>
+  <body>
+    <section>
+            <nav class="navbar navbar-expand-sm py-4" style="box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;">
+                <div class="container">
+                  <a class="navbar-brand" href="#">NEURO</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">NEURO</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown" id="dropdown">
+                          <a class="nav-link dropdown-toggle" id="dropdown-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                          </a>
+                          <ul class="dropdown-menu" id="dropdown-content">
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                            <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+                            {% endif %}
+                          </ul>
+                        </li>
+                      </ul>
+                     
+                    </div>
+                  </div>
+                </div>
+              </nav>
+
+    </section>
+    {% block message %}
+    {% endblock message %}
+    <footer class="mt-4 py-5">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 mb-5">
+                        <div class="h5" style="font-weight: bolder;">NEURO APP</div>
+                        <div><i class="bi bi-geo-alt"></i> Lagos State, Nigeria</div>
+                        <div><i class="bi bi-envelope"></i> info@neuroapp.com</div>
+                        <div class="mt-2">
+                            <i class="bi bi-facebook text-primary"></i>
+                            <i class="bi bi-twitter text-info"></i>
+                            <i class="bi bi-whatsapp text-success"></i>
+                            <i class="bi bi-instagram text-danger"></i>
+                            <i class="bi bi-envelope "></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-5">
+                        <div>Quick links</div>
+                       <ul>
+                        <li><a href="{% url 'about' %}" style="text-decoration: none;">About us</a></li>
+                        <li><a href="{% url 'contact' %}" style="text-decoration: none;">Contact us</a></li>
+                        <li><a href="{% url 'login' %}" style="text-decoration: none;"> Account</a></li>
+                        <li><a href="" style="text-decoration: none;">Developer center</a></li>
+                       </ul>
+                    </div>
+                    <div class="col-sm-4">
+                       <div class="h4">Subscribe to our newsletter</div>
+                       <form action="" method="post">
+                        <input type="email" name="" id="">
+                        <button type="submit" class="btn btn-sm bg-dark text-light">Subscribe</button>
+                       </form>
+                    </div>
+                </div>
+                <div class="text-center mt-3" style="font-size: small;">Copyright &copy 2022. All Rights Reserved</div>
+            </div>
+        </section>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>

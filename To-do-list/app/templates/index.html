@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Neuro App - Make schedule fast and easy
+{% endblock title %}
+{% block message %}
+<section>
+    <div class="cover">
+        <img src="{% static 'images/d.jpeg' %}" class="img-fluid" style="opacity: 0.6;" alt="">
+        <div class="cover-content"> 
+                <div class="h1 text-center text-warning txt" style="font-weight: bolder;">MAKE YOUR SCHEDULES <span class="text-dark">FAST AND SIMPLE TODAY</span></div>
+                <div class="container text-light note">Create your schedules and to-do list in a minute with instant login in your account. We offer the best services with a quick reminder message to your mail.</div>
+               <div class="button">
+                <a href="{% url 'register' %}" class="btn btn-md btn-outline-dark">GET STARTED</a>
+               
+               </div>
+    </div>  
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="h5 text-center mb-5">JOIN US TODAY</div>
+        <div class="row">
+            <div class="col-sm-4 mb-3">
+                  <div class="card" id="card-1">
+                    <img src="{% static 'images/c.jpg' %}" style="width: 100%; height: 230px" alt="">
+                   
+                        <h4 id="card1-content" class="text-warning" style="position: absolute; top:100px; left:100px; font-weight: bolder;">FAST AND RELIABLE</h4>
+             
+                  </div>
+            </div>
+            <div class="col-sm-4 mb-5" >
+                <div class="card" id="card-2" style="position: relative;">
+                    <img src="{% static 'images/b.jpg' %}" style="width: 100%; height: 230px"  alt="">
+                 
+                        <h4 id="card1-content" class="text-warning" style="position: absolute; top:100px; left:100px; font-weight: bolder">SAVE AND SECURED</h4>
+                   
+                  </div>
+            </div>
+             
+            <div class="col-sm-4 mb-5">
+                <div class="card" id="card-3">
+                    <img src="{% static 'images/e.jpg' %}" style="width: 100%; height: 230px"  alt="">
+                    
+                        <h4 id="card1-content" class="text-warning" style="position: absolute; top:100px; left:100px; font-weight: bolder">USER-FRIENDLY</h4>
+                    
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-warning py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+             <div class="h3" style="font-weight: bolder;">NEURO APP</div>
+             <div>
+                Create your schedules and to-do list in a minute with instant login in your account. We offer the best services with a quick reminder message to your mail.
+             </div>
+             <a href="{% url 'register' %}" class="btn btn-sm btn-outline-dark mt-4">REGISTER NOW</a>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+      </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="h5 mb-3 text-center">GUIDE TO CREATING YOUR FIRST TO-DO-LIST</div>
+        <div class="row">
+            <div class="col-sm-3 mb-5">
+                 <div class="card">
+                    <div class="card-body">
+                         <div>
+                            1. Navigate to the new task page.
+                         </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="col-sm-3 mb-5">
+                <div class="card">
+                    <div class="card-body">
+                        2. Fill up the neccessary details and informations.
+                    </div>
+                 </div>
+            </div>
+            <div class="col-sm-3 mb-5">
+                <div class="card">
+                    <div class="card-body">
+                        3. Click on the submit button to add the task.
+                    </div>
+                 </div>
+            </div>
+            <div class="col-sm-3 mb-5">
+                <div class="card">
+                    <div class="card-body">
+                        4. You are all done so far and easy.
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <div class="card bg-dark text-light py-5" style="border: none;">
+                <div class="card-body">
+                    <div class="h5" style="font-weight: bolder;">NEURO <span class="text-warning">APP</span></div>
+                     <div class="h5 float-start">CREATE AN ACCOUNT TODAY AND ENJOY OUR SERVICES</div>
+                     <a href="{% url 'register' %}" class="btn btn-md float-end btn-outline-light">GET STARTED</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock message%}

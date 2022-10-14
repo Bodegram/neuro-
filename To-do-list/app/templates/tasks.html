@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Tasks - Neuro App
+{% endblock title %}
+{% block message %}
+ <section class="py-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-5">
+                <nav id="nav">
+                    <ul style="list-style: none;">
+                      <li class="mb-3"><a href="../../account" style="font-weight: bolder; text-decoration:none; color:black">Home</a></li> <hr>
+                        <li class="mb-3"><a href="../../profile" style="font-weight: bolder; text-decoration:none; color:black">Profile</a></li> <hr>
+                        <li class="mb-3"><a href="../new" style="font-weight: bolder; text-decoration:none; color:black" >New Task</a></li> <hr>
+                        <li class="mb-3"><a href="" style="font-weight: bolder; text-decoration:none; color:black" class="text-info">View Tasks</a></li> <hr>
+                       
+                    </ul> 
+                  </nav>
+                
+            </div>
+            <div class="col-sm-6">
+                <!--section one-->
+                 <div class="text-center mb-3"><span><a href="../account" class="text-dark">Account</a></span> > <span><a href="" class="text-dark">Tasks</a></span></div>
+                 <!--section two-->
+                  
+                        {% if tasks %}
+                          <div class="row">
+                            {% for task in tasks %}
+                            <div class="col-sm-3">
+                                <a href="../../tasks/{{task.id}}" style="text-decoration: none; color:black">
+                                    <div class="card py-5 mb-3">
+                                        <div class="card-body">
+                                             <div class="text-center" style="font-size: small;">{{task.title | upper}}</div>
+                                             <div class="text-center" style="font-size: small;">{{task.date}}</div>
+                                             <div class="text-center" style="font-size: small;">{{task.category}}</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                          </div>
+                          {% else %}
+                          <div>Task is empty</div>
+                          {% endif %}
+                    
+                  </div>
+                 </div>
+            </div>
+            
+    </div>
+ </section>
+{% endblock message %}
